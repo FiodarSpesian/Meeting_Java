@@ -9,6 +9,7 @@
 
 package Seminar_1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class task_4 {
@@ -16,8 +17,13 @@ public class task_4 {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter expression with '?' by the number: ");
         String exp = sc.nextLine();
-        System.out.println(exp);
+        String[] ast = exp.split("");
+        System.out.println(Arrays.toString(ast));
         sc.close();
+        for (int i = 0; i < ast.length; i++) {
+            if(ast[i] == "?"){
+                System.out.println(i);    
+            }
+        }
     }
-    
 }
