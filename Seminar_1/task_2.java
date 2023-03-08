@@ -1,7 +1,7 @@
 // Вывести все простые числа от 1 до 1000
 package Seminar_1;
 
-public class prime_val_task2 {
+public class task_2 {
     public static void main(String[] args) {
         Integer[] arr = new Integer[1000];
         StringBuilder sb = new StringBuilder();
