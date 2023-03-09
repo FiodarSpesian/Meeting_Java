@@ -7,7 +7,6 @@
 
 package Seminar_2.task_1;
 
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -15,8 +14,6 @@ import java.util.Arrays;
 public class task_1 {
     public static void main(String[] args) {
         Integer[] arr = {2, 5, 9, 7, 3, 8, 4, 6, 1};
-        String name_file = "task_1.txt";
-        File file = new File(name_file);
         for (int i = 1; i < arr.length; i++) {
             for (int j = 0; j < i; j++) {
                 if(arr[i] < arr[j]){
@@ -25,7 +22,7 @@ public class task_1 {
                     arr[j] = temp;
                 }
             }
-            try(FileWriter fw = new FileWriter(file, true)) {
+            try(FileWriter fw = new FileWriter("Sem_2_Task_1.txt", true)) {
                 fw.write(Arrays.toString(arr));
                 fw.write("\n");
                 fw.close();
@@ -33,10 +30,6 @@ public class task_1 {
             catch(IOException e) {
                 System.out.println("Exception.");
             }
-            //System.out.println(Arrays.toString(arr));
-            //System.out.println(Arrays.toString(arr));
         }
-        //System.out.println(Arrays.toString(arr));
     }
-    
 }
