@@ -12,25 +12,26 @@
  */
 package Seminar_2.task_2;
 
-import java.io.File;
+import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class task_2 {
-    public static void main(String[] args) {
-        StringBuilder str = new StringBuilder();
-        
-        try {
-            String pathProject = System.getProperty("task_2.txt");
-            String pathFile = pathProject.concat("/task_2.txt");
-            File file = new File(pathFile);
-            System.out.println("try");
-            FileReader f1 = new FileReader(file);
-            char[] a = new char[(int)file.length()];
-            System.out.println(a);
-            f1.close();
-        } catch (Exception e) {
-            System.out.println("catch" + e);
-            
-        }    
+    public static void main(String[] args)     {
+        String sourse = "Seminar_2/task_2/task_2.txt";
+        String[] gradeTable;
+        StringBuilder sb = new StringBuilder ();
+
+        try (BufferedReader reader = new BufferedReader (new FileReader(sourse))){
+            String line;
+            while ((line = reader.readLine()) != null) {
+            gradeTable = line.replace( "\"", "").split ( ":|,");
+            sb.append("\nСтудент ").append(gradeTable[1]).append(" получил ") 
+              .append(gradeTable[3]).append(" по предмету ").append(gradeTable[5]);
+            }
+            System.out.println(sb);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }  
     }
 }
