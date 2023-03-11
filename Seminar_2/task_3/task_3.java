@@ -44,7 +44,7 @@ public class task_3 {
 
     public static void writeToFile(int n1, int n2, char z, int res) {
         String str = new String(n1 + " " + z + " " + n2 + " = " + res);
-        try(FileWriter fw = new FileWriter("Sem_2_Task_3.txt", true)) {
+        try(FileWriter fw = new FileWriter("Seminar_2/task_3/log_task_3.txt", true)) {
             fw.write(str);
             fw.write("\n");
             fw.close();
