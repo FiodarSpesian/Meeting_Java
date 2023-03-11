@@ -22,7 +22,7 @@ public class task_1 {
                     arr[j] = temp;
                 }
             }
-            try(FileWriter fw = new FileWriter("Sem_2_Task_1.txt", true)) {
+            try(FileWriter fw = new FileWriter("Seminar_2/task_1/log_task_1.txt", true)) {
                 fw.write(Arrays.toString(arr));
                 fw.write("\n");
                 fw.close();

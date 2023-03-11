@@ -20,7 +20,7 @@ public class task_2 {
         StringBuilder str = new StringBuilder();
         
         try {
-            String pathProject = System.getProperty("Meeting_Java.dir");
+            String pathProject = System.getProperty("task_2.txt");
             String pathFile = pathProject.concat("/task_2.txt");
             File file = new File(pathFile);
             System.out.println("try");
