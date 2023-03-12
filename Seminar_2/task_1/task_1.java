@@ -7,13 +7,20 @@
 
 package Seminar_2.task_1;
 
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 public class task_1 {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException{
         Integer[] arr = {2, 5, 9, 7, 3, 8, 4, 6, 1};
+        Logger logger = Logger.getLogger(task_1.class.getName());
+        FileHandler fh = new FileHandler("Seminar_2/task_1/log_task_1.txt");
+        logger.addHandler(fh);
+        SimpleFormatter sFormat = new SimpleFormatter();
+        fh.setFormatter(sFormat);
         for (int i = 1; i < arr.length; i++) {
             for (int j = 0; j < i; j++) {
                 if(arr[i] < arr[j]){
@@ -22,14 +29,7 @@ public class task_1 {
                     arr[j] = temp;
                 }
             }
-            try(FileWriter fw = new FileWriter("Seminar_2/task_1/log_task_1.txt", true)) {
-                fw.write(Arrays.toString(arr));
-                fw.write("\n");
-                fw.close();
-            }
-            catch(IOException e) {
-                System.out.println("Exception.");
-            }
+            logger.info(Arrays.toString(arr));
         }
     }
 }
