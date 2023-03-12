@@ -9,6 +9,7 @@ public class task_1 {
     public static void main(String[] args) {
         Scanner iscan = new Scanner(System.in);
         LinkedList<String> ll=new LinkedList<>();
+        System.out.println("Enter value; if print value (print~<index>); if STOP prog (stop): ");
         while(true){
             String n =iscan.nextLine();
             if(n.equals("stop")){
