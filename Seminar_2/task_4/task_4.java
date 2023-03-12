@@ -3,12 +3,12 @@
 К калькулятору из Seminar_1 добавить логирование.
  */
 
-package Seminar_2.task_3;
+package Seminar_2.task_4;
 
 import java.io.FileWriter;
 import java.util.Scanner;
 
-public class task_3 {
+public class task_4 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Введите первое число: ");
@@ -44,7 +44,7 @@ public class task_3 {
 
     public static void writeToFile(int n1, int n2, char z, int res) {
         String str = new String(n1 + " " + z + " " + n2 + " = " + res);
-        try(FileWriter fw = new FileWriter("Seminar_2/task_3/log_task_3.txt", true)) {
+        try(FileWriter fw = new FileWriter("Seminar_2/task_4/log_task_4.txt", true)) {
             fw.write(str);
             fw.write("\n");
             fw.close();
