@@ -11,7 +11,8 @@ public class task_2 {
             lst.add((int)(Math.random()*10));
         }
         System.out.println(lst);
-        for (int i = lst.size() - 1; i >= 0; i--) {
+
+        for (int i = lst.size()-1; i >= 0; i--) {
             if((int)lst.get(i) % 2 == 0){
                 lst.remove(i);
             }
