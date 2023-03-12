@@ -1,5 +1,7 @@
 package Examples.Seminar_2;
-
+//Напишите метод, который сжимает строку.
+//        Пример: вход aaaabbbcaaadd.
+//        результат - a4b3ca3d2
 public class task_2 {
     public static void main(String[] args) {
         String str = "aaaabbbcaaadda";
