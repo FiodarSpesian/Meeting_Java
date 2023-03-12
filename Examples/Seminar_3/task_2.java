@@ -2,6 +2,7 @@ package Examples.Seminar_3;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Comparator;
 
 /*
@@ -10,7 +11,8 @@ import java.util.Comparator;
  */
 public class task_2 {
     public static void main(String[] args) {
-        ArrayList<String> Planets = new ArrayList<> (Arrays.asList ("Венера", "Земля", "Марс", "Юпитер", "Марс", "Земля", "Земля"));
+        //вариант 1
+        ArrayList<String> Planets = new ArrayList<> (Arrays.asList("Венера", "Земля", "Марс", "Юпитер", "Марс", "Земля", "Земля"));
         Planets.sort(Comparator .naturalOrder ());
         int count = 1;
         String planet = Planets. get(0) ;
@@ -24,5 +26,10 @@ public class task_2 {
             }
         }
         System.out.println(Planets.get(Planets.size()-1) + " " + count);
+
+        //вариант 2
+        for (int i = 0; i < Planets.size(); i++) {
+            System.out.printf("%s %d\n", Planets.get(i), Collections.frequency(Planets, Planets.get(i)));
+        }
     }
 }
