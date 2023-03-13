@@ -24,10 +24,10 @@ public class task_3 {
             if (lst.get(i) > max) max = lst.get(i);
             if (lst.get(i) < min) min = lst.get(i);
             medArif = medArif + lst.get(i);
-            System.out.println(medArif);
         }
         System.out.println("Max value of array: " + max);
         System.out.println("Min value of array: " + min);
+        System.out.println("Sum of values of array: " +medArif);
         System.out.println("Average value of array: " + (medArif/lst.size()));
     }
 }
