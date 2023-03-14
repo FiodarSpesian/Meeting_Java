@@ -1,34 +1,28 @@
 package Examples.Seminar_4;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
-import java.util.Scanner;
 
 public class task_1 {
+    // проверка времени заполнения ArrayList и LinkedList 100000 элементами
     public static void main(String[] args) {
-        Scanner iscan = new Scanner(System.in);
-        LinkedList<String> ll=new LinkedList<>();
-        System.out.println("Enter value; if print value (print~<index>); if STOP prog (stop): ");
-        while(true){
-            String n =iscan.nextLine();
-            if(n.equals("stop")){
-                break;
-            }
-            else{
-                if(n.contains("print~")){
-                    ArrayList<String> str = new ArrayList(Arrays.asList(n.split("~")));
-                    int a=Integer.parseInt(str.get(1));
-                    System.out.println(ll.get(a));
-                    ll.remove(a);            
-                    }
-                else{
-                    ll.add(n);
-                }
-                System.out.println(ll);
-            }
-    
+        ArrayList<Integer> list = new ArrayList<>();
+        LinkedList<Integer> linked_list = new LinkedList<>();
+        long time_start_al = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            //list.add(i);
+            list.add(i, 0);
         }
+        long time_end_al = System.currentTimeMillis();
+        long time_al = time_end_al - time_start_al;
+        System.out.println(time_al);
+        long time_start_ll = System.currentTimeMillis();
+        for (int i = 0; i < 100000; i++) {
+            //linked_list.add(i);
+            linked_list.add(i, 0);
+        }
+        long time_end_ll = System.currentTimeMillis();
+        long time_ll = time_end_ll - time_start_ll;
+        System.out.println(time_ll);
     }
 }
-
