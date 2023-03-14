@@ -27,9 +27,11 @@ public class task_2 {
                 if(n.contains("print~")){
                     ArrayList<String> str = new ArrayList(Arrays.asList(n.split("~")));
                     int a=Integer.parseInt(str.get(1));
-                    System.out.println(ll.get(a));
-                    ll.remove(a);            
-                    }
+                    if (a < ll.size() && a > -1){
+                        System.out.println(ll.get(a));
+                        ll.remove(a); 
+                    }           
+                }
                 else{
                     ll.add(n);
                 }
