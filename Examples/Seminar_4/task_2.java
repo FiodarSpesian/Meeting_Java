@@ -20,6 +20,7 @@ public class task_2 {
         while(true){
             String n =iscan.nextLine();
             if(n.equals("stop")){
+                iscan.close();
                 break;
             }
             else{
