@@ -36,12 +36,8 @@ public class task_1 {
         while(true){
             System.out.println(" 1 Для добавления записи. \n 2 Для вывода содержимого.");
             Integer num = sc.nextInt();
-            if (num == 1){
-                fillPhonBook(phB, sc);
-            }
-            if (num == 2){
-                outAll(phB);
-            }
+            if (num == 1) fillPhonBook(phB, sc);
+            if (num == 2) outAll(phB);
         }
     }
 
