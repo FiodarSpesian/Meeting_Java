@@ -1,6 +1,17 @@
 package Examples.Seminar_6.task_3;
 
-public class task_3 {
+public class main {
+    public static void main(String[] args) {
+        Person Ivan = new Person("Ivan");
+        Person Fedor = new Person("Fedor");
+        cat Tom = new cat("Tom", 5, "Undefined", false, Ivan);
+        Tom.meow(6);
+        Tom.vacctination();
+        Tom.vacctination();
+        Tom.feed();
+        Ivan.petCat(Tom);
+        Fedor.petCat(Tom);
+    }
     /*
     Создайте структуру класса Кот. Продумать какие поля и методы будут актуальны для приложения, которое является
     информационной системой ветеринарной клиники
