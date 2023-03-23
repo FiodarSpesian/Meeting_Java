@@ -1,7 +1,5 @@
 package Examples.Seminar_6;
 
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.TreeSet;
 
 public class task_2 {
@@ -20,10 +18,9 @@ public class task_2 {
         original = fillArray(original, 0, 100);
         for (int i = 0; i < original.length; i++) {
             System.out.print(original[i] + " ");
-
         }
         System.out.println();
-        System.out.println(countUnique(original));
+        System.out.printf("%.2f %%\n", countUnique(original));
     }
 
     public static int[] fillArray(int[] array, int min, int max) {
