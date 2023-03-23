@@ -37,7 +37,6 @@ public class task_2 {
             unique.add(array[i]);
         }
         System.out.println(unique);
-        double uniqueAmount = unique.size() * 100 / array.length;
-        return uniqueAmount;
+        return (double) unique.size() * 100 / array.length;
     }
 }
