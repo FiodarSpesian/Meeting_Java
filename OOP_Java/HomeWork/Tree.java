@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tree {
-    List<Human> humanList;    
+    private List<Human> humanList;    
     public Tree(){
         this(new ArrayList<>());
     }
@@ -26,8 +26,4 @@ public class Tree {
             }
         return res;
     }
-    // @Override
-    // public String toString() {
-    //     return Arrays.toString(humanList);
-    // }
 }
