@@ -1,6 +1,10 @@
 package OOP_Java.HomeWork;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Human {
+    private List children;
     private String name;
     private String surname;
     private Gender gender;
@@ -22,7 +26,13 @@ public class Human {
     public Human(){
         this(null, null, null, null, null, null);
     }
-
+    public void addChild(Human child){
+        this.children = new ArrayList<Human>();
+        children.add(child);
+    }
+    public List<Human> getChildren(){
+        return this.children;
+    }
     public String getName(){
         return name;
     }
@@ -53,6 +63,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return "\n"+ name + " " + surname + " " + gender + " " + birthDay;
+        return "\n"+ name + " " + surname + " " + gender + " " + birthDay + "\nfather: " + this.father + "\nmother: " + this.mother;
     }
 }
