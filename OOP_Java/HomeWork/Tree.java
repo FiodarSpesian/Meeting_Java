@@ -19,14 +19,14 @@ public class Tree {
 
     public void getChildren(Human parent) {
         //List<Human> res = new ArrayList<>();
-        System.out.println("Parent: " + parent + "\nChildren: ");
+        System.out.println("Parent:\n " + parent + "\nChildren: ");
             for (int i = 0; i < humanList.size(); i++) {
                 if(humanList.get(i).getFather() == null|| humanList.get(i).getMother() == null){
                     continue;
                 }
                 if(humanList.get(i).getFather().equals(parent) || humanList.get(i).getMother().equals(parent)){
                     //res.add(humanList.get(i));
-                    System.out.println("  " + humanList.get(i));
+                    System.out.println(" " + humanList.get(i));
                 }
             }
         //return res;
