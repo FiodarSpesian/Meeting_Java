@@ -63,6 +63,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return "\n"+ name + " " + surname + " " + gender + " " + birthDay + "\nfather: " + this.father + "\nmother: " + this.mother;
+        return "\n" + name + " " + surname + " " + gender + " " + birthDay;
     }
 }
