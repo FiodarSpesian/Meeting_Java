@@ -19,6 +19,7 @@ public class Human {
         this.birthDay = birthDay;
         this.father = father;
         this.mother = mother;
+        this.children = children;
     }
     public Human(String name, String surname, Gender gender, String birthDay){
         this(name, surname, gender, birthDay, null, null);
@@ -29,10 +30,12 @@ public class Human {
     public void addChild(Human child){
         this.children = new ArrayList<Human>();
         children.add(child);
+        // child.setFather(this.father);
+        // child.setMother(this.mother);
     }
-    public List<Human> getChildren(){
-        return this.children;
-    }
+    // public List<Human> getChildren(){
+    //     return this.children;
+    // }
     public String getName(){
         return name;
     }
@@ -51,6 +54,7 @@ public class Human {
     public Human getFather() {
         return father;
     }
+    
     public void setFather(Human father) {
         this.father = father;
     }
@@ -63,6 +67,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return "\n" + name + " " + surname + " " + gender + " " + birthDay;
+        return  name + " " + surname + " " + gender + " " + birthDay;
     }
 }
