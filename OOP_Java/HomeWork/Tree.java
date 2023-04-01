@@ -1,9 +1,16 @@
 package OOP_Java.HomeWork;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Tree {
+public class Tree implements Serializable {
     private List<Human> humanList;    
     public Tree(){
         this(new ArrayList<>());
@@ -15,6 +22,9 @@ public class Tree {
 
     public void addHuman(Human human) {
         this.humanList.add(human);
+        if (human.getFather() != null) addChildToFatherChildrenList(human);
+        if (human.getMother() != null) addChildToMotherChildrenList(human);
+
     }
 
     public void getChildren(Human parent) {
@@ -31,10 +41,27 @@ public class Tree {
             }
         //return res;
     }
-    public void saveToFile() {
-        
+    public void save(String file) throws FileNotFoundException, IOException {
+        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(file));
+        // for (int i = 0; i < humanList.size(); i++) {
+        //     outStream.writeObject(humanList.get(i));
+        // }
+        outStream.writeObject(humanList);
+        outStream.close();
     }
-    public void readFromFile() {
-        
+    public void readTree(String file) throws FileNotFoundException, IOException, ClassNotFoundException {
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream( file));
+        List<Human>newhumanList = (List<Human>) inputStream.readObject();
+        System.out.println(newhumanList);
+    }
+    private void addChildToFatherChildrenList(Human human) {
+        human.getFather().addChild(human);
+    }
+    private void addChildToMotherChildrenList(Human human) {
+        human.getMother().addChild(human);
+    }
+    @Override
+    public String toString() {
+        return humanList.toString();
     }
 }
