@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork;
+package OOP_Java.HomeWork.tree;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -9,6 +9,8 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+
+import OOP_Java.HomeWork.human.Human;
 
 public class Tree implements Serializable {
     private List<Human> humanList;    

@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork;
+package OOP_Java.HomeWork.human;
 
 import java.io.Serializable;
 import java.util.ArrayList;
