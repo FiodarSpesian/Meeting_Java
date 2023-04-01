@@ -3,6 +3,8 @@ package OOP_Java.HomeWork;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+import OOP_Java.HomeWork.tree.Tree;
+
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         Tree familyTree = new Tree();
