@@ -2,39 +2,36 @@ package OOP_Java.HomeWork.human;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
-public class Human implements Serializable{
+public class Human implements Serializable, Comparable<Human>{
     private List<Human> children;
     private String name;
     private String surname;
     private Gender gender;
-    private String birthDay;
+    private BirthDay birthDay;
     private Human father;
     private Human mother;
     
-    public Human( String name, String surname, Gender gender, String birthDay, Human father, Human mother){
+    public Human( String name, String surname, Gender gender, int dayOfBirth, int monthOfBirth, int yearOfBirth, Human father, Human mother){
         this.name = name;
         this.surname = surname;
         this.gender = gender;
-        this.birthDay = birthDay;
+        this.birthDay = new BirthDay(dayOfBirth, monthOfBirth, yearOfBirth);
         this.father = father;
         this.mother = mother;
         children = new ArrayList<>();
     }
-    public Human(String name, String surname, Gender gender, String birthDay){
-        this(name, surname, gender, birthDay, null, null);
-
+    public Human(String name, String surname, Gender gender, int dayOfBirth, int monthOfBirth, int yearOfBirth){
+        this(name, surname, gender, dayOfBirth, monthOfBirth, yearOfBirth, null, null);
     }
-    public Human(){
-        this(null, null, null, null, null, null);
-    }
+    
     public void addChild(Human child){
         if (!children.contains(child)){
             children.add(child);
         }
-        // child.setFather(this.father);
-        // child.setMother(this.mother);
     }
     public String getInfo() {
         StringBuilder sb = new StringBuilder();
@@ -95,7 +92,7 @@ public class Human implements Serializable{
         return gender;
     }
 
-    public String getBirthDay(){
+    public BirthDay getBirthDay(){
         return birthDay;
     }
     public Human getFather() {
@@ -110,11 +107,14 @@ public class Human implements Serializable{
     public void setMother(Human mother) {
         this.mother = mother;
     }
-    // public void setChild(Human human) {
-    //     children.add(human);
-    // }
+
     @Override
     public String toString() {
         return name + " " + surname + " " + gender + " " + birthDay;
+    }
+    @Override
+    public int compareTo(Human o) {
+        return this.getBirthDay().getHappyBirthDay().compareTo(o.getBirthDay().getHappyBirthDay());
+        //return getName().compareTo(o.getName());
     }
 }

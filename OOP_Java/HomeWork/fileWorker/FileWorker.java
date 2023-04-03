@@ -27,6 +27,7 @@ public class FileWorker implements Writable, Readable, Serializable{
     public String getFilePath() {
         return this.str;
     }
+    
     @Override
     public void save() throws IOException {
         ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(str));
