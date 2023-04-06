@@ -19,7 +19,7 @@ public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         Tree familyTree = new Tree();
         Service service = new Service(familyTree);
-        Human father1 = new Human( "Fiodar", "Spetsian", Gender.Male, 19, 6, 2024);
+        Human father1 = new Human( "Fiodar", "Spetsian", Gender.Male, 19, 6, 1998);
         Human mother1 = new Human( "Diana", "Spetsian", Gender.Female, 27, 9, 1999 );
         Human child1 = new Human("Eva","Spetsian", Gender.Female, 03, 8, 2023, father1, mother1);
         Human child2 = new Human("Gleb", "Spetsian", Gender.Male, 20, 5, 2023, father1, mother1);
