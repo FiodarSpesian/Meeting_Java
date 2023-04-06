@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork.service;
+package OOP_Java.HomeWork.comporators;
 
 import java.util.Comparator;
 
