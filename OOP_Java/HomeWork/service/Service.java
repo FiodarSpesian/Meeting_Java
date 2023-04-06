@@ -15,13 +15,12 @@ public class Service {
         this.tree = tree;
     }
     public void sortByName() {
-        Collections.sort(tree.getHumansList());
+        Collections.sort(tree.getHumansList(), new HumanComporatorByName());
+        // tree.getHumansList().sort(new HumanComporatorByName());
     }
 
     public void sortByBirthDay(){
-        Collections.sort(tree.getHumansList());
-        for (int i = 0; i < tree.getHumansList().size(); i++) {
-            
-        }
+        Collections.sort(tree.getHumansList(), new HumanComporatorByBirth());
+        // tree.getHumansList().sort(new HumanComporatorByBirth());
     }
 }

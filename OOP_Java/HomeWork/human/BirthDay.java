@@ -27,7 +27,7 @@ public class BirthDay {
     public Calendar getHappyBirthDay() {
         return happyBD;
     }
-    public int compareTo(Human o) {
-        return getHappyBirthDay().compareTo(o.getBirthDay().getHappyBirthDay());
-    }
+    // public int compareTo(Human o) {
+    //     return getHappyBirthDay().compareTo(o.getBirthDay().getHappyBirthDay());
+    // }
 }

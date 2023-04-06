@@ -92,8 +92,8 @@ public class Human implements Serializable, Comparable<Human>{
         return gender;
     }
 
-    public BirthDay getBirthDay(){
-        return birthDay;
+    public Calendar getBirthDay(){
+        return birthDay.getHappyBirthDay();
     }
     public Human getFather() {
         return father;
@@ -114,7 +114,6 @@ public class Human implements Serializable, Comparable<Human>{
     }
     @Override
     public int compareTo(Human o) {
-        return this.getBirthDay().getHappyBirthDay().compareTo(o.getBirthDay().getHappyBirthDay());
-        //return getName().compareTo(o.getName());
+        return getName().compareTo(o.getName());
     }
 }

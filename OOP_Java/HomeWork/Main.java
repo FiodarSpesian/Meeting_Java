@@ -26,9 +26,9 @@ public class Main {
         Human child3 = new Human("Don", "null", null, 0, 0, 0, null, null);
 
 
-        // father1.addChild(child3);
-        // child3.setFather(father1);
-        // child3.setMother(mother1);
+        father1.addChild(child3);
+        child3.setFather(father1);
+        child3.setMother(mother1);
         
         familyTree.addHuman(child2);
         familyTree.addHuman(child3);
@@ -50,7 +50,7 @@ public class Main {
             System.out.println(human);
         }
         System.out.println("-------------");
-        System.out.println(child2.getBirthDay());
+        // System.out.println(child2.getBirthDay());
         service.sortByBirthDay();
         for (Human human : familyTree) {
             System.out.println(human);
