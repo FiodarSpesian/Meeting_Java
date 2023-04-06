@@ -1,16 +1,9 @@
 package OOP_Java.HomeWork.service;
 
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 import OOP_Java.HomeWork.comporators.HumanComporatorByName;
 import OOP_Java.HomeWork.comporators.HumanComporatorByBirth;
-import OOP_Java.HomeWork.comporators.HumanComporatorByBirth;
-import OOP_Java.HomeWork.comporators.HumanComporatorByName;
 import OOP_Java.HomeWork.tree.Tree;
 
 public class Service {
