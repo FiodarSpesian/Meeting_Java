@@ -5,9 +5,10 @@ import java.util.List;
 
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.service.commands.AddHuman;
+import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.view.ConsoleView;
 
-public class TreeService<E extends Human> implements Service {
+public class TreeService<E extends Human> extends Tree<E> implements Service {
     private List<E> humanList;
 
     public TreeService(){

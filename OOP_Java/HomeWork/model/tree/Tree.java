@@ -15,13 +15,13 @@ import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.human.HumanIterator;
 import OOP_Java.HomeWork.model.service.TreeService;
 
-public class Tree<T extends Human> extends TreeService implements Serializable, Iterable<T>{
+public class Tree<T extends Human>  implements Serializable, Iterable<T>{
     private List<T> humanList;
 
     public Tree(){
         // super();
         this.humanList = new ArrayList<T>();
-        // this(new ArrayList<>());
+        //this(new ArrayList<>());
     }
     public void addHuman(T human) {
         this.humanList.add(human);
