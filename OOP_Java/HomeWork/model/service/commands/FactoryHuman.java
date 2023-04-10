@@ -6,7 +6,7 @@ import OOP_Java.HomeWork.model.human.Gender;
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.tree.Tree;
 
-public class AddHuman extends Human {
+public class FactoryHuman extends Human {
     Tree<Human> tree;
     Scanner sc;
     String name;
@@ -14,7 +14,7 @@ public class AddHuman extends Human {
     String gender;
     String calendar;
     
-    public AddHuman(String name, String surname, String gender, String calendar){
+    public FactoryHuman(String name, String surname, String gender, String calendar){
         super();
         sc = new Scanner(System.in);
         this.name = name;
@@ -22,7 +22,7 @@ public class AddHuman extends Human {
         this.gender = gender;
         this.calendar = calendar; 
     }
-    public AddHuman(){
+    public FactoryHuman(){
         this(null, null, null, null);
     }
     public Human createHuman() {

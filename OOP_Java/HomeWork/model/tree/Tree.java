@@ -13,23 +13,26 @@ import OOP_Java.HomeWork.model.comporators.HumanComporatorByName;
 import OOP_Java.HomeWork.model.fileWorker.FileWorker;
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.human.HumanIterator;
-import OOP_Java.HomeWork.model.service.TreeService;
 
-public class Tree<T extends Human>  implements Serializable, Iterable<T>{
+public class Tree<T extends Human>  implements Serializable{
     private List<T> humanList;
 
     public Tree(){
-        // super();
         this.humanList = new ArrayList<T>();
-        //this(new ArrayList<>());
     }
-    public void addHuman(T human) {
-        this.humanList.add(human);
-        if (human.getFather() != null) addChildToFatherChildrenList(human);
-        if (human.getMother() != null) addChildToMotherChildrenList(human);
+    // public void addHuman(T human) {
+    //     this.humanList.add(human);
+    //     if (human.getFather() != null) addChildToFatherChildrenList(human);
+    //     if (human.getMother() != null) addChildToMotherChildrenList(human);
 
+    // }
+
+    private void addChildToFatherChildrenList(T human) {
+        human.getFather().addChild(human);
     }
-
+    private void addChildToMotherChildrenList(T human) {
+        human.getMother().addChild(human);
+    }
     
     public void getChildren(T parent) {
         System.out.println("Parent:\n " + parent + "\nChildren: ");
@@ -42,29 +45,11 @@ public class Tree<T extends Human>  implements Serializable, Iterable<T>{
             }
         }
     }
-    private void addChildToFatherChildrenList(T human) {
-        human.getFather().addChild(human);
-    }
-    private void addChildToMotherChildrenList(T human) {
-        human.getMother().addChild(human);
-    }
 
-    public void readTree(FileWorker obj) throws FileNotFoundException, IOException, ClassNotFoundException {
-        obj.read();
-    }
-    public void saveTree(FileWorker obj) throws IOException {
-        obj.save();    
-    }
-
-    @Override
-    public String toString() {
-        return humanList.toString();
-    }
-
-    @Override
-    public Iterator<T> iterator() {
-        return new HumanIterator<>(humanList);
-    }
+    // @Override
+    // public Iterator<T> iterator() {
+    //     return new HumanIterator<>(humanList);
+    // }
 
     // public void sortByName() {
     //     Collections.sort(this.getHumansList(), new HumanComporatorByName());

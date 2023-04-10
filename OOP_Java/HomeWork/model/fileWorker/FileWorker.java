@@ -13,15 +13,15 @@ import java.util.List;
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.tree.Tree;
 
-public class FileWorker implements Writable, Readable, Serializable{
-    private Tree arr;
+public class FileWorker<T extends Human> implements Writable, Readable<T>, Serializable{
+    private Tree<T> arr;
     private String str;
     
-    public FileWorker(Tree arr, String str) {
+    public FileWorker(Tree<T> arr, String str) {
         this.arr = arr;
         this.str = str;
     }
-    public Tree getHumanList(){
+    public Tree<T> getHumanList(){
         return this.arr;
     }
     public String getFilePath() {
@@ -40,11 +40,11 @@ public class FileWorker implements Writable, Readable, Serializable{
         }
     }
     @Override
-    public List<Human> read() throws FileNotFoundException, IOException {
-        List<Human> newHumanList = new ArrayList<>();
+    public List<T> read() throws FileNotFoundException, IOException {
+        List<T> newHumanList = new ArrayList<>();
         try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(str))) {
             try {
-                newHumanList = (List<Human>) inputStream.readObject();
+                newHumanList = (List<T>) inputStream.readObject();
             } catch (ClassNotFoundException e) {
                 System.out.println("error.");
             }

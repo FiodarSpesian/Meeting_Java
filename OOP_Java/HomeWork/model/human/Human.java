@@ -1,9 +1,12 @@
 package OOP_Java.HomeWork.model.human;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Locale;
 
 
 public class Human implements Serializable, Comparable<Human>{
@@ -103,16 +106,20 @@ public class Human implements Serializable, Comparable<Human>{
     public void setGender(Gender gender){
         this.gender = gender;
     }
-
-    // public Calendar getBirthDay(){
-    //     return birthDay.getHappyBirthDay();
-    // }
-    // SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
-    //     human.setDayOfBirth(calendar.setTime(sdf.parse(birthday))); 
-    
+   
     public void setDayOfBirth(String birthDay) {
         this.birthDay = birthDay;
     }
+    public Calendar getBirthDay(){
+        Calendar calBirthDay = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+        try {
+            calBirthDay.setTime(sdf.parse(birthDay));
+        } catch (ParseException e) {
+            System.out.println("error.");
+        }
+        return calBirthDay;
+    }  
     public Human getFather() {
         return father;
     }

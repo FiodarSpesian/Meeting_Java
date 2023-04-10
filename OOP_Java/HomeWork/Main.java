@@ -25,47 +25,13 @@ public class Main {
         TreeService<Human> service = new TreeService<>();
         new Presenter(view, service);
 
-
         view.start();
-
-        // Tree<Human> familyTree = new Tree();
-        // Service service = new Service(familyTree);
-        // Human father1 = new Human( "Fiodar", "Spetsian", Gender.Male, "19.06.1998");
-        // Human mother1 = new Human( "Diana", "Spetsian", Gender.Female, "27.09.1999");
-        // Human child1 = new Human("Eva","Spetsian", Gender.Female, "03.08.2023", father1, mother1);
-        // Human child2 = new Human("Gleb", "Spetsian", Gender.Male, "20.05.2023", father1, mother1);
-        // Human child3 = new Human("Don", "null", null, null, null, null);
-
-
-        // father1.addChild(child3);
-        // child3.setFather(father1);
-        // child3.setMother(mother1);
-        
-        // familyTree.addHuman(child2);
-        // familyTree.addHuman(child3);
-        // familyTree.addHuman(child1);
-        // familyTree.addHuman(father1);
 
     //     Iterator<student.Student> iterator = group.iterator();
     //     while (iterator.hasNext()){
     //        student.Student student = iterator.next();
     //        System.out.println(student);
     // }
-
-        // for (Human human : familyTree) {
-        //     System.out.println(human);
-        // }
-        // familyTree.sortByName();
-        // System.out.println("-------------");
-        // for (Human human : familyTree) {
-        //     System.out.println(human);
-        // }
-        // System.out.println("-------------");
-        // // System.out.println(child2.getBirthDay());
-        // familyTree.sortByBirthDay();
-        // for (Human human : familyTree) {
-        //     System.out.println(human);
-        // }
     }
     
 }
