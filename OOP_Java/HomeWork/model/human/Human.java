@@ -1,30 +1,34 @@
-package OOP_Java.HomeWork.human;
+package OOP_Java.HomeWork.model.human;
 
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+
 public class Human implements Serializable, Comparable<Human>{
     private List<Human> children;
     private String name;
     private String surname;
     private Gender gender;
-    private BirthDay birthDay;
+    private String birthDay;
     private Human father;
     private Human mother;
     
-    public Human( String name, String surname, Gender gender, int dayOfBirth, int monthOfBirth, int yearOfBirth, Human father, Human mother){
+    public Human( String name, String surname, Gender gender, String birthDay, Human father, Human mother){
         this.name = name;
         this.surname = surname;
         this.gender = gender;
-        this.birthDay = new BirthDay(dayOfBirth, monthOfBirth, yearOfBirth);
+        this.birthDay = birthDay;
         this.father = father;
         this.mother = mother;
         children = new ArrayList<>();
     }
-    public Human(String name, String surname, Gender gender, int dayOfBirth, int monthOfBirth, int yearOfBirth){
-        this(name, surname, gender, dayOfBirth, monthOfBirth, yearOfBirth, null, null);
+    public Human(String name, String surname, Gender gender, String daybirth){
+        this(name, surname, gender, daybirth, null, null);
+    }
+    public Human(){
+        this(null, null, null, null);
     }
     
     public void addChild(Human child){
@@ -82,17 +86,32 @@ public class Human implements Serializable, Comparable<Human>{
     public String getName(){
         return name;
     }
+    public void setName(String name){
+        this.name = name;
+    }
 
     public String getSurname(){
         return surname;
+    }
+    public void setSurname(String surname){
+        this.surname = surname;
     }
 
     public Gender getGender(){
         return gender;
     }
+    public void setGender(Gender gender){
+        this.gender = gender;
+    }
 
-    public Calendar getBirthDay(){
-        return birthDay.getHappyBirthDay();
+    // public Calendar getBirthDay(){
+    //     return birthDay.getHappyBirthDay();
+    // }
+    // SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+    //     human.setDayOfBirth(calendar.setTime(sdf.parse(birthday))); 
+    
+    public void setDayOfBirth(String birthDay) {
+        this.birthDay = birthDay;
     }
     public Human getFather() {
         return father;

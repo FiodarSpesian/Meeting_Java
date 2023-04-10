@@ -1,8 +1,8 @@
-package OOP_Java.HomeWork.comporators;
+package OOP_Java.HomeWork.model.comporators;
 
 import java.util.Comparator;
 
-import OOP_Java.HomeWork.human.Human;
+import OOP_Java.HomeWork.model.human.Human;
 
 public class HumanComporatorByName implements Comparator<Human>{
 

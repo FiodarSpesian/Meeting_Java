@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork.fileWorker;
+package OOP_Java.HomeWork.model.fileWorker;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -10,8 +10,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import OOP_Java.HomeWork.human.Human;
-import OOP_Java.HomeWork.tree.Tree;
+import OOP_Java.HomeWork.model.human.Human;
+import OOP_Java.HomeWork.model.tree.Tree;
 
 public class FileWorker implements Writable, Readable, Serializable{
     private Tree arr;

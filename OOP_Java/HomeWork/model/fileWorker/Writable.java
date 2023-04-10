@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork.fileWorker;
+package OOP_Java.HomeWork.model.fileWorker;
 
 import java.io.IOException;
 

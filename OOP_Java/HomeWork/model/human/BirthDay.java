@@ -1,4 +1,4 @@
-package OOP_Java.HomeWork.human;
+package OOP_Java.HomeWork.model.human;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
