@@ -2,38 +2,86 @@ package OOP_Java.HomeWork.view;
 
 import java.util.Scanner;
 
+import OOP_Java.HomeWork.model.human.BirthDay;
+import OOP_Java.HomeWork.model.human.Human;
+import OOP_Java.HomeWork.model.service.Menu;
+import OOP_Java.HomeWork.model.service.TreeService;
+import OOP_Java.HomeWork.model.service.commands.FactoryHuman;
+import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
 
 public class ConsoleView implements View{
-
     private Presenter presenter;
-    private Scanner scanner;
+    private Scanner sc;
+    private boolean work;
+    private Menu menu;
 
     public ConsoleView(){
-        scanner = new Scanner(System.in);
+        sc = new Scanner(System.in);
+        work = true;
+        menu = new Menu(this);
     }
 
     @Override
     public void start() {
-
-        while(true){
-            String function = scan();
-            presenter.onClick(function);     
+        while(work){
+            menu.print();
+            int choice = Integer.parseInt(scan());
+            menu.execute(choice);
         }
+        // while(true){
+        //     String function = scan();
+        //     presenter.onClick(function);
+        // }
+    }
+    private boolean check(String text){
+        return text.matches("[0-9]+");
     }
 
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
     }
+    public Presenter getPresenter() {
+        return presenter;
+    }
+
     private String scan(){
-        System.out.println("\nWright number of function which you want to do:");
-        System.out.println("1 Human List\n" + "2 Add human to tree\n");
-        return scanner.nextLine();
+        // System.out.println("\nWrite number of function which you want to do:");
+        // System.out.println("1 Human List\n" + "2 Add human to tree\n");
+        return sc.nextLine();
     }
 
     @Override
     public void print(String text) {
-        System.out.println();
+        System.out.println(text);
     }
+
+    public void getHumansList(){
+
+    }
+    public void addHuman() {
+        System.out.println("Enter name:");
+        String name = sc.nextLine();
+        System.out.println("Enter surname:");
+        String surname = sc.nextLine();
+        System.out.println("Enter gender Male/Female:");
+        String gender = sc.nextLine();
+        // if(gender.toLowerCase().equals("male") || gender.toLowerCase().equals("female")){
+        //     if(gender.toLowerCase().equals("male")){
+        //         human.setGender(Gender.Male);
+        //     } else{
+        //         human.setGender(Gender.Female);
+        //     }
+        // } else {
+        //     System.out.println("Wrong gender!");
+        // }
+        System.out.println("Enter birthday format dd.mm.yyyy:");
+        String birthDay = sc.nextLine();
+        presenter.addHuman(name, surname, gender, birthDay);
+    }
+    public void finish(){
+        work = false;
+    }
+    
 }

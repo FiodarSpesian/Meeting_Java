@@ -1,25 +1,18 @@
 package OOP_Java.HomeWork.model.tree;
 
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
 import java.util.List;
 
-import OOP_Java.HomeWork.model.comporators.HumanComporatorByBirth;
-import OOP_Java.HomeWork.model.comporators.HumanComporatorByName;
-import OOP_Java.HomeWork.model.fileWorker.FileWorker;
 import OOP_Java.HomeWork.model.human.Human;
-import OOP_Java.HomeWork.model.human.HumanIterator;
 
-public class Tree<T extends Human>  implements Serializable{
-    private List<T> humanList;
+public class Tree<T extends Human>{
+    public List<T> humanList;
 
     public Tree(){
         this.humanList = new ArrayList<T>();
     }
+    
+    
     // public void addHuman(T human) {
     //     this.humanList.add(human);
     //     if (human.getFather() != null) addChildToFatherChildrenList(human);

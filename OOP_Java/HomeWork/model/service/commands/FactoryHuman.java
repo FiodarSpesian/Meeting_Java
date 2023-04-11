@@ -4,10 +4,8 @@ import java.util.Scanner;
 
 import OOP_Java.HomeWork.model.human.Gender;
 import OOP_Java.HomeWork.model.human.Human;
-import OOP_Java.HomeWork.model.tree.Tree;
 
 public class FactoryHuman extends Human {
-    Tree<Human> tree;
     Scanner sc;
     String name;
     String surname;
@@ -45,7 +43,7 @@ public class FactoryHuman extends Human {
         System.out.println("Enter birthday format dd.mm.yyyy:");
         calendar = sc.nextLine();
         human.setDayOfBirth(calendar);
-        System.out.println(human);
+        sc.close();
         return human;
     }
 }

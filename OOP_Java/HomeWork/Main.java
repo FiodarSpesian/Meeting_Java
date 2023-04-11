@@ -22,8 +22,8 @@ import OOP_Java.HomeWork.view.View;
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
         View view = new ConsoleView();
-        TreeService<Human> service = new TreeService<>();
-        new Presenter(view, service);
+        Presenter presenter = new Presenter(view);
+        view.setPresenter(presenter);
 
         view.start();
 
