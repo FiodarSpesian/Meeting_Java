@@ -2,12 +2,7 @@ package OOP_Java.HomeWork.view;
 
 import java.util.Scanner;
 
-import OOP_Java.HomeWork.model.human.BirthDay;
-import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.service.Menu;
-import OOP_Java.HomeWork.model.service.TreeService;
-import OOP_Java.HomeWork.model.service.commands.FactoryHuman;
-import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
 
 public class ConsoleView implements View{
@@ -67,15 +62,6 @@ public class ConsoleView implements View{
         String surname = sc.nextLine();
         System.out.println("Enter gender Male/Female:");
         String gender = sc.nextLine();
-        // if(gender.toLowerCase().equals("male") || gender.toLowerCase().equals("female")){
-        //     if(gender.toLowerCase().equals("male")){
-        //         human.setGender(Gender.Male);
-        //     } else{
-        //         human.setGender(Gender.Female);
-        //     }
-        // } else {
-        //     System.out.println("Wrong gender!");
-        // }
         System.out.println("Enter birthday format dd.mm.yyyy:");
         String birthDay = sc.nextLine();
         presenter.addHuman(name, surname, gender, birthDay);

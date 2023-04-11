@@ -14,7 +14,6 @@ import OOP_Java.HomeWork.model.fileWorker.FileWorker;
 import OOP_Java.HomeWork.model.human.Gender;
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.human.HumanIterator;
-import OOP_Java.HomeWork.model.service.commands.FactoryHuman;
 import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
 import OOP_Java.HomeWork.view.ConsoleView;
