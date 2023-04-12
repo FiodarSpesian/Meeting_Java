@@ -20,14 +20,12 @@ public class ConsoleView implements View{
     @Override
     public void start() {
         while(work){
+            System.out.println("Enter number of command:");
             menu.print();
             int choice = Integer.parseInt(scan());
             menu.execute(choice);
+            System.out.println("\n");
         }
-        // while(true){
-        //     String function = scan();
-        //     presenter.onClick(function);
-        // }
     }
     private boolean check(String text){
         return text.matches("[0-9]+");
@@ -53,7 +51,14 @@ public class ConsoleView implements View{
     }
 
     public void getHumansList(){
-
+        presenter.getHumansList();
+    }
+    public void getInfoByHuman(){
+        System.out.println("Enter name of human: ");
+        String name = sc.nextLine();
+        System.out.println("Enter surname of human: ");
+        String surname = sc.nextLine();
+        presenter.getInfoByHuman(name, surname);
     }
     public void addHuman() {
         System.out.println("Enter name:");
@@ -64,8 +69,13 @@ public class ConsoleView implements View{
         String gender = sc.nextLine();
         System.out.println("Enter birthday format dd.mm.yyyy:");
         String birthDay = sc.nextLine();
-        presenter.addHuman(name, surname, gender, birthDay);
+        System.out.println("Father: enter name surname ");
+        String father = sc.nextLine(); 
+        System.out.println("Mother: enter name surname");
+        String mother = sc.nextLine(); 
+        presenter.addHuman(name, surname, gender, birthDay, father, mother);
     }
+
     public void finish(){
         work = false;
     }

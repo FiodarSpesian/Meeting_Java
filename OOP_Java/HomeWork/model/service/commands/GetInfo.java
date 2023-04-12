@@ -2,15 +2,16 @@ package OOP_Java.HomeWork.model.service.commands;
 
 import OOP_Java.HomeWork.view.ConsoleView;
 
-public class AddHuman extends Command {
+public class GetInfo extends Command {
 
-    public AddHuman(ConsoleView button) {
+    public GetInfo(ConsoleView button) {
         super(button);
-        description = "Add new human.";
+        description = "Get info by the human.";
     }
-    
+
     @Override
     public void execute() {
-        button.addHuman();
+        button.getInfoByHuman();
     }
+    
 }

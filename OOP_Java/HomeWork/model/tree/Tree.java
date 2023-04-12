@@ -19,13 +19,13 @@ public class Tree<T extends Human>{
     //     if (human.getMother() != null) addChildToMotherChildrenList(human);
 
     // }
-
-    private void addChildToFatherChildrenList(T human) {
-        human.getFather().addChild(human);
-    }
-    private void addChildToMotherChildrenList(T human) {
-        human.getMother().addChild(human);
-    }
+    
+    // private void addChildToFatherChildrenList(T human) {
+    //     human.getFather().addChild(human);
+    // }
+    // private void addChildToMotherChildrenList(T human) {
+    //     human.getMother().addChild(human);
+    // }
     
     public void getChildren(T parent) {
         System.out.println("Parent:\n " + parent + "\nChildren: ");

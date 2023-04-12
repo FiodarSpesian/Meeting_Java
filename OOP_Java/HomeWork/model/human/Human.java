@@ -53,7 +53,7 @@ public class Human implements Serializable, Comparable<Human>{
         sb.append(getChildrenInfo());
         return sb.toString();
     }
-    public String getFatherInfo() {
+    private String getFatherInfo() {
         String res = "father: ";
         if (mother != null){
             res += father.getName();
@@ -62,7 +62,7 @@ public class Human implements Serializable, Comparable<Human>{
         }
         return res;
     }
-    public String getMotherInfo() {
+    private String getMotherInfo() {
         String res = "mother: ";
         if (mother != null){
             res += mother.getName();
@@ -71,7 +71,7 @@ public class Human implements Serializable, Comparable<Human>{
         }
         return res;
     }
-    public String getChildrenInfo() {
+    private String getChildrenInfo() {
         StringBuilder res = new StringBuilder();
         res.append("children: ");
         if (children.size() != 0){
@@ -86,6 +86,7 @@ public class Human implements Serializable, Comparable<Human>{
         }
         return res.toString();
     }
+
     public String getName(){
         return name;
     }
@@ -119,7 +120,8 @@ public class Human implements Serializable, Comparable<Human>{
             System.out.println("error.");
         }
         return calBirthDay;
-    }  
+    }
+
     public Human getFather() {
         return father;
     }

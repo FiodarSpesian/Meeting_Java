@@ -8,6 +8,7 @@ import OOP_Java.HomeWork.model.service.commands.AddHuman;
 import OOP_Java.HomeWork.model.service.commands.Command;
 import OOP_Java.HomeWork.model.service.commands.Finish;
 import OOP_Java.HomeWork.model.service.commands.GetHumanList;
+import OOP_Java.HomeWork.model.service.commands.GetInfo;
 import OOP_Java.HomeWork.view.ConsoleView;
 
 public class Menu {
@@ -17,18 +18,20 @@ public class Menu {
         commands = new ArrayList<>();
         commands.add(new AddHuman(button));
         commands.add(new GetHumanList(button));
+        commands.add(new GetInfo(button));
         commands.add(new Finish(button));
     }
     public void execute(int choice) {
         commands.get(choice - 1).execute();
     }
-    public String print() {
-        StringBuilder sb = new StringBuilder();
+    public void print() {
         for (int i = 0; i < commands.size(); i++) {
+            StringBuilder sb = new StringBuilder();
             sb.append(i+1);
             sb.append(" ");
             sb.append(commands.get(i).getDescription());
+            System.out.println(sb.toString());
         }
-        return sb.toString();
+        //return sb.toString();
     }
 }

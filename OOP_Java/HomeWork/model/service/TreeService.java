@@ -1,6 +1,5 @@
 package OOP_Java.HomeWork.model.service;
 
-import java.io.Console;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,13 +15,15 @@ import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.human.HumanIterator;
 import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
-import OOP_Java.HomeWork.view.ConsoleView;
 
 public class TreeService<E extends Human> extends Tree<E> implements Service<E>, Iterable<E> {
     private Presenter presenter;
-
+    private List<E> humanList;
+    public TreeService(){
+        this.humanList = new ArrayList<>();
+    }
     @Override
-    public void addHuman(String name, String surname, String gender, String birthDay) {
+    public void addHuman(String name, String surname, String gender, String birthDay, String father, String mother) {
         Human human = new Human();
         human.setName(name);
         human.setSurname(surname);
@@ -35,9 +36,31 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
         } else {
             System.out.println("Wrong gender!");
         }
-        System.out.println("Enter birthday format dd.mm.yyyy:");
         human.setDayOfBirth(birthDay);
+        String[] fatherSplit = father.split(" ");
+        String[] motherSplit = mother.split(" ");
+
+        for (int i = 0; i < humanList.size(); i++) {
+            if(fatherSplit.equals(human.getName()) & fatherSplit.equals(human.getSurname())){ 
+                human.setFather(humanList.get(i));
+            } else{
+                human.setFather(null);
+            }
+            if(motherSplit.equals(human.getName()) & motherSplit.equals(human.getSurname())){ 
+                human.setMother(humanList.get(i));
+            } else{
+                human.setMother(null);
+            }
+        }
         humanList.add((E) human);
+        if (human.getFather() != null) addChildToFatherChildrenList(human);
+        if (human.getMother() != null) addChildToMotherChildrenList(human);
+    }
+    private void addChildToFatherChildrenList(E human) {
+        human.getFather().addChild(human);
+    }
+    private void addChildToMotherChildrenList(E human) {
+        human.getMother().addChild(human);
     }
 
     @Override
@@ -47,6 +70,19 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
                     System.out.println(human);
                 };
     }
+
+    @Override
+    public void getInfoByHuman(String name, String surname) {
+        for (int i = 0; i < humanList.size(); i++) {
+            if(humanList.get(i).getName().equals(name) & humanList.get(i).getSurname().equals(surname)){ 
+                System.out.println(humanList.get(i));
+                System.out.println(" " + humanList.get(i).getInfo());
+            } else{
+                System.out.println("Human undefined.");
+            }
+        }
+    }
+  
     @Override
     public List<E> readTree(FileWorker<E> obj) throws FileNotFoundException, IOException, ClassNotFoundException {
         List<E> lst = new ArrayList<>();
@@ -73,8 +109,5 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
         return new HumanIterator<>(humanList);
     }
 
-    @Override
-    public void get(String function) {  
-    }
-  
+    
 }
