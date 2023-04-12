@@ -43,23 +43,23 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
         for (int i = 0; i < humanList.size(); i++) {
             if(fatherSplit.equals(human.getName()) & fatherSplit.equals(human.getSurname())){ 
                 human.setFather(humanList.get(i));
+                if (human.getFather() != null) addChildToFatherChildrenList(human);
             } else{
                 human.setFather(null);
             }
             if(motherSplit.equals(human.getName()) & motherSplit.equals(human.getSurname())){ 
                 human.setMother(humanList.get(i));
+                if (human.getMother() != null) addChildToMotherChildrenList(human);
             } else{
                 human.setMother(null);
             }
         }
         humanList.add((E) human);
-        if (human.getFather() != null) addChildToFatherChildrenList(human);
-        if (human.getMother() != null) addChildToMotherChildrenList(human);
     }
-    private void addChildToFatherChildrenList(E human) {
+    private void addChildToFatherChildrenList(Human human) {
         human.getFather().addChild(human);
     }
-    private void addChildToMotherChildrenList(E human) {
+    private void addChildToMotherChildrenList(Human human) {
         human.getMother().addChild(human);
     }
 
