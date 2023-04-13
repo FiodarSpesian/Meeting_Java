@@ -23,7 +23,7 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
         this.humanList = new ArrayList<>();
     }
     @Override
-    public void addHuman(String name, String surname, String gender, String birthDay, String father, String mother) {
+    public void addHuman(String name, String surname, String gender, String birthDay, String fName, String mName) {
         Human human = new Human();
         human.setName(name);
         human.setSurname(surname);
@@ -37,30 +37,26 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
             System.out.println("Wrong gender!");
         }
         human.setDayOfBirth(birthDay);
-        String[] fatherSplit = father.split(" ");
-        String[] motherSplit = mother.split(" ");
 
         for (int i = 0; i < humanList.size(); i++) {
-            if(fatherSplit.equals(human.getName()) & fatherSplit.equals(human.getSurname())){ 
-                human.setFather(humanList.get(i));
-                if (human.getFather() != null) addChildToFatherChildrenList(human);
-            } else{
-                human.setFather(null);
+            if(human.getFather() == null){
+                if(humanList.get(i).getName().toLowerCase().equals(fName.toLowerCase())){ 
+                    human.setFather(humanList.get(i));
+                    if (human.getFather().getName().equals(fName)) human.getFather().addChild(human);
+                } else{
+                    human.setFather(null);
+                }
             }
-            if(motherSplit.equals(human.getName()) & motherSplit.equals(human.getSurname())){ 
-                human.setMother(humanList.get(i));
-                if (human.getMother() != null) addChildToMotherChildrenList(human);
-            } else{
-                human.setMother(null);
+            if(human.getMother() == null){
+                if(humanList.get(i).getName().toLowerCase().equals(mName.toLowerCase())){ 
+                    human.setMother(humanList.get(i));
+                    if (human.getMother().getName().equals(mName)) human.getMother().addChild(human);
+                } else{
+                    human.setMother(null);
+                }
             }
         }
         humanList.add((E) human);
-    }
-    private void addChildToFatherChildrenList(Human human) {
-        human.getFather().addChild(human);
-    }
-    private void addChildToMotherChildrenList(Human human) {
-        human.getMother().addChild(human);
     }
 
     @Override
@@ -75,10 +71,7 @@ public class TreeService<E extends Human> extends Tree<E> implements Service<E>,
     public void getInfoByHuman(String name, String surname) {
         for (int i = 0; i < humanList.size(); i++) {
             if(humanList.get(i).getName().equals(name) & humanList.get(i).getSurname().equals(surname)){ 
-                System.out.println(humanList.get(i));
-                System.out.println(" " + humanList.get(i).getInfo());
-            } else{
-                System.out.println("Human undefined.");
+                System.out.println(humanList.get(i).getInfo());
             }
         }
     }

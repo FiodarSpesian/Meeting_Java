@@ -69,9 +69,9 @@ public class ConsoleView implements View{
         String gender = sc.nextLine();
         System.out.println("Enter birthday format dd.mm.yyyy:");
         String birthDay = sc.nextLine();
-        System.out.println("Father: enter name surname ");
+        System.out.println("Father: enter name");
         String father = sc.nextLine(); 
-        System.out.println("Mother: enter name surname");
+        System.out.println("Mother: enter name");
         String mother = sc.nextLine(); 
         presenter.addHuman(name, surname, gender, birthDay, father, mother);
     }

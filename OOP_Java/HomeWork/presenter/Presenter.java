@@ -14,8 +14,8 @@ public class Presenter {
         view.setPresenter(this);
     }
 
-    public void addHuman(String name, String surname, String gender, String birthDay, String father, String mother) {
-        treeService.addHuman(name,  surname,  gender,  birthDay, father, mother);
+    public void addHuman(String name, String surname, String gender, String birthDay, String fName,  String mName) {
+        treeService.addHuman(name,  surname,  gender,  birthDay, fName, mName);
     }
 
     public void getHumansList() {

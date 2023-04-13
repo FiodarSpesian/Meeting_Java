@@ -55,7 +55,7 @@ public class Human implements Serializable, Comparable<Human>{
     }
     private String getFatherInfo() {
         String res = "father: ";
-        if (mother != null){
+        if (father != null){
             res += father.getName();
         } else{
             res += "unknown";
