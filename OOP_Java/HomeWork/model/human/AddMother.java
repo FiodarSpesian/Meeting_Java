@@ -17,17 +17,16 @@ public class AddMother<E extends Human> {
         if(humanList != null){
             for(Human person: humanList){
                 if(person.getName().toLowerCase().equals(motherName.toLowerCase())){ 
-                    if(human.getMother() == null) human.setFather(person);
+                    if(human.getMother() == null) human.setMother(person);
                         if (human.getMother().getName().equals(motherName)) {
                             human.getMother().addChild(human);
                         }
                 } else{
-                    human.setFather(null);
+                    human.setMother(null);
                 }
             }
-            return human;
+            return null;
         }
-        human.setFather(null);
-        return human;
+        return null;
     }
 }

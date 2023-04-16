@@ -1,6 +1,7 @@
 package OOP_Java.HomeWork.model.service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -17,14 +18,15 @@ import OOP_Java.HomeWork.model.human.HumanIterator;
 import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
 
-public class TreeService<E extends Human> implements Service<E>, Iterable<Human> {
+public class TreeService<E extends Human> implements Service<E>, Iterable<Human>, Serializable {
     private Presenter presenter;
     private Tree<E> humanList;
     private FileWorker<E> fileWorker;
 
-    public TreeService(){
+    public TreeService(Presenter presenter){
         this.humanList = new Tree<>();
         this.fileWorker = new FileWorker<>(humanList, "OOP_Java/HomeWork/tree.out");
+        this.presenter = presenter;
     }
     
     @Override
@@ -51,7 +53,7 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
     @Override
     public void getHumansList() {
         StringBuilder sb = new StringBuilder();
-        sb.append("List of human: ");
+        sb.append("List of human:\n");
         for (Human human : humanList) {
             sb.append(human + "\n");
         };        

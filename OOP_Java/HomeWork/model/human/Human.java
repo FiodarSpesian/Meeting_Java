@@ -60,7 +60,7 @@ public class Human implements Serializable, Comparable<Human>{
         if (father != null){
             res.append("Father: ");
             res.append(father.getName() + ", ");
-            res.append(father.getBirthDay());
+            res.append(father.getBirthString());
         } else{
             res.append("unknown");
         }
@@ -71,7 +71,7 @@ public class Human implements Serializable, Comparable<Human>{
         if (mother != null){
             res.append("Mother: ");
             res.append(mother.getName() + ", ");
-            res.append(mother.getBirthDay());
+            res.append(mother.getBirthString());
             } else{
             res.append("unknown");
         }
@@ -84,7 +84,7 @@ public class Human implements Serializable, Comparable<Human>{
             for (int i = 0; i < children.size(); i++) {
                 res.append(children.get(i).getName());
                 res.append(", ");
-                res.append(birthDay);
+                res.append(children.get(i).getBirthString());
             }
         } else {
             res.append("childfree");
@@ -115,6 +115,9 @@ public class Human implements Serializable, Comparable<Human>{
    
     public void setDayOfBirth(String birthDay) {
         this.birthDay = birthDay;
+    }
+    public String getBirthString(){
+        return birthDay;
     }
     public Calendar getBirthDay(){
         Calendar calBirthDay = Calendar.getInstance();

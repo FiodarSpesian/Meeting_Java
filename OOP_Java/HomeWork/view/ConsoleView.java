@@ -27,9 +27,9 @@ public class ConsoleView implements View{
             System.out.println("\n");
         }
     }
-    private boolean check(String text){
-        return text.matches("[0-9]+");
-    }
+    // private boolean check(String text){
+    //     return text.matches("[0-9]+");
+    // }
     @Override
     public void print(String text) {
         System.out.println(text);
