@@ -8,9 +8,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
-import OOP_Java.HomeWork.model.tree.Tree;
-
-
 public class Human implements Serializable, Comparable<Human>{
     private List<Human> children;
     private String name;
