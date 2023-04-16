@@ -30,7 +30,10 @@ public class ConsoleView implements View{
     private boolean check(String text){
         return text.matches("[0-9]+");
     }
-
+    @Override
+    public void print(String text) {
+        System.out.println(text);
+    }
     @Override
     public void setPresenter(Presenter presenter) {
         this.presenter = presenter;
@@ -40,19 +43,13 @@ public class ConsoleView implements View{
     }
 
     private String scan(){
-        // System.out.println("\nWrite number of function which you want to do:");
-        // System.out.println("1 Human List\n" + "2 Add human to tree\n");
         return sc.nextLine();
-    }
-
-    @Override
-    public void print(String text) {
-        System.out.println(text);
     }
 
     public void getHumansList(){
         presenter.getHumansList();
     }
+
     public void getInfoByHuman(){
         System.out.println("Enter name of human: ");
         String name = sc.nextLine();
@@ -74,6 +71,13 @@ public class ConsoleView implements View{
         System.out.println("Mother: enter name");
         String mother = sc.nextLine(); 
         presenter.addHuman(name, surname, gender, birthDay, father, mother);
+    }
+
+    public void save() {
+        presenter.save();
+    }
+    public void read() {
+        presenter.read();
     }
 
     public void finish(){

@@ -2,16 +2,16 @@ package OOP_Java.HomeWork.model.service.commands;
 
 import OOP_Java.HomeWork.view.ConsoleView;
 
-public class Finish extends Command {
+public class Read extends Command{
 
-    public Finish(ConsoleView button) {
+    public Read(ConsoleView button) {
         super(button);
-        description = "End program.";
+        description = "Load family tree from file.";
     }
 
     @Override
     public void execute() {
-        button.finish();
+        button.read();
     }
     
 }

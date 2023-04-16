@@ -15,40 +15,32 @@ import OOP_Java.HomeWork.model.tree.Tree;
 
 public class FileWorker<T extends Human> implements Writable, Readable<T>, Serializable{
     private Tree<T> arr;
-    private String str;
+    private String path;
     
-    public FileWorker(Tree<T> arr, String str) {
+    public FileWorker(Tree<T> arr, String path) {
         this.arr = arr;
-        this.str = str;
+        this.path = path;
     }
     public Tree<T> getHumanList(){
         return this.arr;
     }
     public String getFilePath() {
-        return this.str;
+        return this.path;
     }
     
     @Override
     public void save() throws IOException {
-        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(str));
-        try {
-            outStream.writeObject((Object)arr);
-        } catch (IOException e) {
-            System.out.println("error.");
-        }finally{
-            outStream.close();
-        }
+        ObjectOutputStream outStream = new ObjectOutputStream(new FileOutputStream(path));
+        outStream.writeObject((Object)arr);        
+        outStream.close();
+        
     }
     @Override
-    public List<T> read() throws FileNotFoundException, IOException {
+    public List<T> read() throws FileNotFoundException, IOException, ClassNotFoundException {
         List<T> newHumanList = new ArrayList<>();
-        try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(str))) {
-            try {
-                newHumanList = (List<T>) inputStream.readObject();
-            } catch (ClassNotFoundException e) {
-                System.out.println("error.");
-            }
-        }
+        ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(path));
+        newHumanList = (List<T>) inputStream.readObject();
+        inputStream.close();
         return newHumanList;
     }
 }

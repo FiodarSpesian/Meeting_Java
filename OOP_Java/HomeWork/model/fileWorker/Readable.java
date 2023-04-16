@@ -7,5 +7,5 @@ import java.util.List;
 import OOP_Java.HomeWork.model.human.Human;
 
 public interface Readable<T extends Human> {
-    public List<T> read() throws FileNotFoundException, IOException;
+    public List<T> read() throws FileNotFoundException, IOException, ClassNotFoundException;
 }

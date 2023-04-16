@@ -25,5 +25,14 @@ public class Presenter {
     public void getInfoByHuman(String name, String surname) {
         treeService.getInfoByHuman(name, surname);
     }
+    public void print(String text) {
+        view.print(text);
+    }
+    public void save() {
+        treeService.save();
+    }
+    public void read() {
+        treeService.read();
+    }
 
 }
