@@ -5,16 +5,34 @@ import OOP_Java.HomeWork.model.service.TreeService;
 import OOP_Java.HomeWork.view.View;
 
 public class Presenter {
-    private View view;
-    private TreeService<Human> service;
+    public View view;
+    private TreeService<Human> treeService;
     
-    public Presenter(View view, TreeService<Human> service){
+    public Presenter(View view){
         this.view = view;
-        this.service = service;
+        this.treeService = new TreeService<>();
         view.setPresenter(this);
     }
-    public void onClick(String function) {
-        service.get(function); // 1:15:00 по семинару
-        view.print("text");
+
+    public void addHuman(String name, String surname, String gender, String birthDay, String fName,  String mName) {
+        treeService.addHuman(name,  surname,  gender,  birthDay, fName, mName);
     }
+
+    public void getHumansList() {
+        treeService.getHumansList();
+    }
+
+    public void getInfoByHuman(String name, String surname) {
+        treeService.getInfoByHuman(name, surname);
+    }
+    public void print(String text) {
+        view.print(text);
+    }
+    public void save() {
+        treeService.save();
+    }
+    public void read() {
+        treeService.read();
+    }
+
 }

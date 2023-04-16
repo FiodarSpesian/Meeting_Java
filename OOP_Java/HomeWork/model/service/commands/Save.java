@@ -2,14 +2,16 @@ package OOP_Java.HomeWork.model.service.commands;
 
 import OOP_Java.HomeWork.view.ConsoleView;
 
-public class GetHumanList extends Command{
+public class Save extends Command {
 
-    public GetHumanList(ConsoleView button) {
+    public Save(ConsoleView button) {
         super(button);
-        description = "Get list of human.";
+        description = "Save family tree to file.";
     }
+
     @Override
     public void execute() {
-        button.getHumansList();
+        button.save();
     }
+    
 }

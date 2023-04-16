@@ -8,6 +8,8 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Locale;
 
+import OOP_Java.HomeWork.model.tree.Tree;
+
 
 public class Human implements Serializable, Comparable<Human>{
     private List<Human> children;
@@ -18,7 +20,7 @@ public class Human implements Serializable, Comparable<Human>{
     private Human father;
     private Human mother;
     
-    public Human( String name, String surname, Gender gender, String birthDay, Human father, Human mother){
+    public Human(String name, String surname, Gender gender, String birthDay, Human father, Human mother){
         this.name = name;
         this.surname = surname;
         this.gender = gender;
@@ -53,39 +55,43 @@ public class Human implements Serializable, Comparable<Human>{
         sb.append(getChildrenInfo());
         return sb.toString();
     }
-    public String getFatherInfo() {
-        String res = "father: ";
-        if (mother != null){
-            res += father.getName();
+    private String getFatherInfo() {
+        StringBuilder res = new StringBuilder();
+        if (father != null){
+            res.append("Father: ");
+            res.append(father.getName() + ", ");
+            res.append(father.getBirthDay());
         } else{
-            res += "unknown";
+            res.append("unknown");
         }
-        return res;
+        return res.toString();
     }
-    public String getMotherInfo() {
-        String res = "mother: ";
+    private String getMotherInfo() {
+        StringBuilder res = new StringBuilder();
         if (mother != null){
-            res += mother.getName();
-        } else{
-            res += "unknown";
+            res.append("Mother: ");
+            res.append(mother.getName() + ", ");
+            res.append(mother.getBirthDay());
+            } else{
+            res.append("unknown");
         }
-        return res;
+        return res.toString();
     }
-    public String getChildrenInfo() {
+    private String getChildrenInfo() {
         StringBuilder res = new StringBuilder();
         res.append("children: ");
         if (children.size() != 0){
-            // res.append(children.get(0).getName());
             for (int i = 0; i < children.size(); i++) {
-                // res.append(", ");
                 res.append(children.get(i).getName());
-                res.append(" ");
+                res.append(", ");
+                res.append(birthDay);
             }
         } else {
             res.append("childfree");
         }
         return res.toString();
     }
+
     public String getName(){
         return name;
     }
@@ -119,12 +125,13 @@ public class Human implements Serializable, Comparable<Human>{
             System.out.println("error.");
         }
         return calBirthDay;
-    }  
+    }
+
     public Human getFather() {
         return father;
     }
-    public void setFather(Human father) {
-        this.father = father;
+    public void setFather(Human human) {
+        this.father = human;
     }
     public Human getMother() {
         return mother;
