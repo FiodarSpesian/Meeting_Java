@@ -2,18 +2,18 @@ package OOP_Java.HomeWork.model.human;
 
 import OOP_Java.HomeWork.model.tree.Tree;
 
-public class AddMother<E extends Human> {
+public class FindMother<E extends Human> {
     private Tree<E> humanList;
     private Human human;
     private String motherName;
 
-    public AddMother(Tree<E> humanList, Human human, String motherName){
+    public FindMother(Tree<E> humanList, Human human, String motherName){
         this.humanList = humanList;
         this.human = human;
         this.motherName = motherName;
     }
 
-    public Human setMother() {
+    public Human addMother() {
         if(humanList != null){
             for(Human person: humanList){
                 if(person.getName().toLowerCase().equals(motherName.toLowerCase())){ 

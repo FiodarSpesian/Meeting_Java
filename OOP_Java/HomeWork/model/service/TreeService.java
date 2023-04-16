@@ -10,7 +10,7 @@ import java.util.List;
 import OOP_Java.HomeWork.model.comporators.HumanComporatorByBirth;
 import OOP_Java.HomeWork.model.comporators.HumanComporatorByName;
 import OOP_Java.HomeWork.model.fileWorker.FileWorker;
-import OOP_Java.HomeWork.model.human.AddFather;
+import OOP_Java.HomeWork.model.human.FindFather;
 import OOP_Java.HomeWork.model.human.AddMother;
 import OOP_Java.HomeWork.model.human.Gender;
 import OOP_Java.HomeWork.model.human.Human;
@@ -44,8 +44,8 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
             presenter.print("Wrong gender!");
         }
         human.setDayOfBirth(birthDay);
-        human.setFather(new AddFather<E>(humanList, human, fName).setFather());
-        human.setMother(new AddMother<E>(humanList, human, mName).setMother());
+        human.setFather(new FindFather<E>(humanList, human, fName).addFather());
+        human.setMother(new AddMother<E>(humanList, human, mName).addMother());
         
         humanList.add(human);
     }
