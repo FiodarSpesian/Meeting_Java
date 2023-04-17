@@ -68,7 +68,7 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
                 sb.append(humanList.get(i).getInfo()).append("\n");
             }
         }
-        presenter.print(sb.toString());;
+        presenter.print(sb.toString());
     }
   
     public void save() {
@@ -102,11 +102,21 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
     public void sortByName() {
         Collections.sort(humanList, new HumanComporatorByName());
         // tree.getHumansList().sort(new HumanComporatorByName());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < humanList.size(); i++) {
+                sb.append(humanList.get(i).getInfo()).append("\n");
+        }
+        presenter.print(sb.toString());
     }
     @Override
     public void sortByBirthDay() {
         Collections.sort(humanList, new HumanComporatorByBirth());
         // tree.getHumansList().sort(new HumanComporatorByBirth());
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < humanList.size(); i++) {
+                sb.append(humanList.get(i).getInfo()).append("\n");
+        }
+        presenter.print(sb.toString());
     }
     @Override
     public Iterator<Human> iterator() {

@@ -35,4 +35,10 @@ public class Presenter {
         treeService.read();
     }
 
+    public void sortByBirthDay(){
+        treeService.sortByBirthDay();
+    }
+    public void sortByName() {
+        treeService.sortByName();
+    }
 }
