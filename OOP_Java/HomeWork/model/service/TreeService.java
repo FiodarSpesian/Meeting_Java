@@ -1,6 +1,7 @@
 package OOP_Java.HomeWork.model.service;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -9,22 +10,23 @@ import java.util.List;
 import OOP_Java.HomeWork.model.comporators.HumanComporatorByBirth;
 import OOP_Java.HomeWork.model.comporators.HumanComporatorByName;
 import OOP_Java.HomeWork.model.fileWorker.FileWorker;
-import OOP_Java.HomeWork.model.human.AddFather;
-import OOP_Java.HomeWork.model.human.AddMother;
+import OOP_Java.HomeWork.model.human.FindFather;
+import OOP_Java.HomeWork.model.human.FindMother;
 import OOP_Java.HomeWork.model.human.Gender;
 import OOP_Java.HomeWork.model.human.Human;
 import OOP_Java.HomeWork.model.human.HumanIterator;
 import OOP_Java.HomeWork.model.tree.Tree;
 import OOP_Java.HomeWork.presenter.Presenter;
 
-public class TreeService<E extends Human> implements Service<E>, Iterable<Human> {
+public class TreeService<E extends Human> implements Service<E>, Iterable<Human>, Serializable {
     private Presenter presenter;
     private Tree<E> humanList;
     private FileWorker<E> fileWorker;
 
-    public TreeService(){
+    public TreeService(Presenter presenter){
         this.humanList = new Tree<>();
         this.fileWorker = new FileWorker<>(humanList, "OOP_Java/HomeWork/tree.out");
+        this.presenter = presenter;
     }
     
     @Override
@@ -42,8 +44,8 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
             presenter.print("Wrong gender!");
         }
         human.setDayOfBirth(birthDay);
-        human.setFather(new AddFather<E>(humanList, human, fName).setFather());
-        human.setMother(new AddMother<E>(humanList, human, mName).setMother());
+        human.setFather(new FindFather<E>(humanList, human, fName).addFather());
+        human.setMother(new FindMother<E>(humanList, human, mName).addMother());
         
         humanList.add(human);
     }
@@ -51,7 +53,7 @@ public class TreeService<E extends Human> implements Service<E>, Iterable<Human>
     @Override
     public void getHumansList() {
         StringBuilder sb = new StringBuilder();
-        sb.append("List of human: ");
+        sb.append("List of human:\n");
         for (Human human : humanList) {
             sb.append(human + "\n");
         };        

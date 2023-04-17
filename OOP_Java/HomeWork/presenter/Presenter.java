@@ -10,7 +10,7 @@ public class Presenter {
     
     public Presenter(View view){
         this.view = view;
-        this.treeService = new TreeService<>();
+        this.treeService = new TreeService<>(this);
         view.setPresenter(this);
     }
 
