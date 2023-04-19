@@ -80,8 +80,14 @@ public class ConsoleView implements View{
         presenter.read();
     }
 
+    public void SortTreeByBirthDay(){
+        presenter.sortByBirthDay();
+    }
+    public void SortTreeByName(){
+        presenter.sortByName();
+    }
+
     public void finish(){
         work = false;
     }
-    
 }

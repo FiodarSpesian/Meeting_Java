@@ -15,12 +15,15 @@ public class FindMother<E extends Human> {
 
     public Human addMother() {
         if(humanList != null){
-            for(Human person: humanList){
-                if(person.getName().toLowerCase().equals(motherName.toLowerCase())){ 
-                    if(human.getMother() == null) human.setMother(person);
+            for(int i = 0; i < humanList.size();  i++){
+                if(humanList.get(i).getName().toLowerCase().equals(motherName.toLowerCase())){ 
+                    if(human.getMother() == null) {
+                        human.setMother(humanList.get(i));
                         if (human.getMother().getName().equals(motherName)) {
                             human.getMother().addChild(human);
                         }
+                        return humanList.get(i);
+                    }
                 } else{
                     human.setMother(null);
                 }

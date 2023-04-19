@@ -10,6 +10,8 @@ import OOP_Java.HomeWork.model.service.commands.GetHumanList;
 import OOP_Java.HomeWork.model.service.commands.GetInfo;
 import OOP_Java.HomeWork.model.service.commands.Read;
 import OOP_Java.HomeWork.model.service.commands.Save;
+import OOP_Java.HomeWork.model.service.commands.SortTreeByBirthDay;
+import OOP_Java.HomeWork.model.service.commands.SortTreeByName;
 import OOP_Java.HomeWork.view.ConsoleView;
 
 public class Menu {
@@ -22,6 +24,8 @@ public class Menu {
         commands.add(new GetInfo(button));
         commands.add(new Save(button));
         commands.add(new Read(button));
+        commands.add(new SortTreeByBirthDay(button));
+        commands.add(new SortTreeByName(button));
 
         commands.add(new Finish(button));
     }
